@@ -5,7 +5,7 @@ using CRUD.Infra.Data.EntityConfig;
 
 namespace CRUD.Infra.Data.Context
 {
-    class CRUDContext : DbContext        
+    public class CRUDContext : DbContext        
     {
         public CRUDContext()
             : base("DefaultConnection")
