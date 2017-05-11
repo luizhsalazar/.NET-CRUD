@@ -13,6 +13,9 @@ namespace CRUD.UI.Site
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Allow annotation in routes
+            //routes.MapMvcAttributeRoutes();
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

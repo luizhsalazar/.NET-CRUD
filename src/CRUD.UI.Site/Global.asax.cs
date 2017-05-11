@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRUD.Application.AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,8 @@ namespace CRUD.UI.Site
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            // Mapping should be invoked when application starts
+            AutoMapperConfig.RegisterMappings();
         }
     }
 }

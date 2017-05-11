@@ -20,22 +20,22 @@ namespace CRUD.Infra.Data.EntityConfig
 
             // For each propriety it's posible to edit its requirements here.
             Property(c => c.Location)
-                .IsRequired()
+                //.IsRequired()
                 .HasMaxLength(150)
             ;
 
             Property(c => c.Number)
-                .IsRequired()
+                //.IsRequired()
                 .HasMaxLength(20)
             ;
 
             Property(c => c.Neighborhood)
-                .IsRequired()
+                //.IsRequired()
                 .HasMaxLength(50)
             ;
             
             Property(c => c.ZipCode)
-                .IsRequired()
+                //.IsRequired()
                 .HasMaxLength(8)
                 .IsFixedLength()
             ;

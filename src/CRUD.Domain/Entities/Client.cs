@@ -11,6 +11,7 @@ namespace CRUD.Domain.Entities
         public Client()
         {
             ClientId = Guid.NewGuid();
+            Addresses = new List<Address>();
         }
 
         public Guid ClientId { get; set; }
