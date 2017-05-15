@@ -13,11 +13,11 @@ namespace CRUD.Application
 {
     public class ClientAppService : IClientAppService
     {
-        private readonly ClientRepository _clientRepository;
+        private readonly IClientAppService _clientService;
 
-        public ClientAppService()
+        public ClientAppService(IClientAppService clientService)
         {
-            _clientRepository = new ClientRepository();
+            _clientService = clientService;
         }
 
         public ClientAddressViewModel Add(ClientAddressViewModel clientAddressViewModel)
@@ -28,14 +28,14 @@ namespace CRUD.Application
 
             client.Addresses.Add(address);
             client.CreatedAt = DateTime.Now;
-            _clientRepository.Add(client);
+            //_clientService.Add(client);
 
             return clientAddressViewModel;
         }
 
         public void Dispose()
         {
-            _clientRepository.Dispose();
+            _clientService.Dispose();
             GC.SuppressFinalize(this);
         }
 
@@ -46,28 +46,28 @@ namespace CRUD.Application
 
         public ClientViewModel GetByDocument(string document)
         {
-            return Mapper.Map<ClientViewModel>(_clientRepository.GetByDocument(document));
+            return Mapper.Map<ClientViewModel>(_clientService.GetByDocument(document));
         }
 
         public ClientViewModel GetByEmail(string email)
         {
-            return Mapper.Map<ClientViewModel>(_clientRepository.GetByEmail(email));
+            return Mapper.Map<ClientViewModel>(_clientService.GetByEmail(email));
         }
 
         public ClientViewModel GetById(Guid id)
         {
-            return Mapper.Map<ClientViewModel>(_clientRepository.GetById(id));
+            return Mapper.Map<ClientViewModel>(_clientService.GetById(id));
         }
 
         public void Remove(Guid id)
         {
-            _clientRepository.Remove(id);
+            _clientService.Remove(id);
         }
 
         public ClientViewModel Update(ClientViewModel clientViewModel)
         {
             var client = Mapper.Map<Client>(clientViewModel);
-            _clientRepository.Update(client);
+            // _clientService.Update(client);
 
             return clientViewModel;
         }

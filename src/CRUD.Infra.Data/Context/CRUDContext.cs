@@ -7,7 +7,7 @@ using System;
 
 namespace CRUD.Infra.Data.Context
 {
-    public class CRUDContext : DbContext        
+    public class CRUDContext : DbContext
     {
         public CRUDContext()
             : base("DefaultConnection")

@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using CRUD.Domain.Entities;
 using CRUD.Domain.Interfaces.Repository;
 using System.Linq;
+using CRUD.Infra.Data.Context;
 
 namespace CRUD.Infra.Data.Repository
 {
     public class ClientRepository : Repository<Client>, IClientRepository
     {
+        public ClientRepository(CRUDContext context)
+            :base(context)
+        {
+
+        }
+
         public IEnumerable<Client> GetActives()
         {
             return Search(c => c.Active);

@@ -15,16 +15,16 @@ namespace CRUD.Infra.Data.Repository
         protected CRUDContext Db;
         protected DbSet<TEntity> DbSet;
 
-        public Repository()
+        public Repository(CRUDContext context)
         {
-            Db = new CRUDContext();
+            Db = context;
             DbSet = Db.Set<TEntity>();
         }
 
         public virtual TEntity Add(TEntity obj)
         {
             var objReturn = DbSet.Add(obj);
-            SaveChanges();
+            //SaveChanges();
 
             return objReturn;
         }
@@ -51,7 +51,7 @@ namespace CRUD.Infra.Data.Repository
         public virtual void Remove(Guid id)
         {
             DbSet.Remove(DbSet.Find(id));
-            SaveChanges();
+            //SaveChanges();
         }
 
         public int SaveChanges()
@@ -71,7 +71,7 @@ namespace CRUD.Infra.Data.Repository
             var entry = Db.Entry(obj);
             DbSet.Attach(obj);
             entry.State = EntityState.Modified;
-            SaveChanges();
+            //SaveChanges();
 
             return obj;
         }

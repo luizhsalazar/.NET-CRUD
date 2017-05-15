@@ -3,17 +3,18 @@ using System.Net;
 using System.Web.Mvc;
 using CRUD.Application.ViewModels;
 using CRUD.Application;
+using CRUD.Application.Interfaces;
 
 namespace CRUD.UI.Site.Controllers
 {
     [RoutePrefix("gestao/cadastros")]
     public class ClientsController : Controller
     {
-        private readonly ClientAppService _clientAppService;
+        private readonly IClientAppService _clientAppService;
 
-        public ClientsController()
+        public ClientsController(IClientAppService clientAppService)
         {
-            _clientAppService = new ClientAppService();
+            _clientAppService = clientAppService;
         }
 
         // GET: Clients
